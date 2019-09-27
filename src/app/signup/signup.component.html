@@ -1,0 +1,122 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="login">
+    <div class="login-head">
+      <h4>Sign up</h4>
+      <p>or <span (click)="openLoginDialog()"><strong><a href="/">login to your account</a></strong></span></p>
+      <div class="underline"></div>
+    </div>
+    <div class="login-body">
+      <form class="login-form" [formGroup]="SignupForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col s6 f">
+            <div class="p">
+              <mat-form-field class="example-full-width">
+                <input type="tel" matInput placeholder="ID" formControlName="contact">
+                <mat-error *ngIf="contact.errors?.minLength && contact.errors?.maxLength && !contact.errors?.required">
+                  Please enter a valid 9 digit number
+                </mat-error>
+                <mat-error *ngIf="contact.errors?.required">
+                  ID is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+                <input matInput type="email" placeholder="Email" formControlName="email">
+                <mat-error *ngIf="email.errors?.email && !email.errors?.required">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="email.errors?.required">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+                <input type="password" matInput placeholder="Password" formControlName="password">
+                <mat-error *ngIf="password.errors?.minLength && !password.errors?.required">
+                  Minimum length of 8 is required
+                </mat-error>
+                <mat-error *ngIf="password.errors?.required">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+                <input type="password" matInput placeholder="Password Confirm" formControlName="password">
+                <mat-error *ngIf="password.errors?.minLength && !password.errors?.required">
+                  Minimum length of 8 is required
+                </mat-error>
+                <mat-error *ngIf="password.errors?.required">
+                  Password is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="col s6">
+            <div class="p">
+              <mat-form-field class="example-full-width">
+                <mat-label>City:</mat-label>
+                <mat-select matInput placeholder="City" formControlName="city" required>
+                  <mat-option value="Afula">Afula</mat-option>
+                  <mat-option value="Tel Aviv">Tel Aviv</mat-option>
+                  <mat-option value="Netanya">Netanya</mat-option>
+                  <mat-option value="Beer Sheva">Beer Sheva</mat-option>
+                  <mat-option value="Ashdod">Ashdod</mat-option>
+                  <mat-option value="Raanana">Raanana</mat-option>
+                  <mat-option value="Eilat">Eilat</mat-option>
+                  <mat-option value="Haifa">Haifa</mat-option>
+                  <mat-option value="Kiryat Shmona">Kiryat Shmona</mat-option>
+                  <mat-option value="Ramat Gan">Ramat Gan</mat-option>
+                </mat-select>
+                <mat-error *ngIf="name.errors?.required">
+                  City is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+
+                <input type="text" matInput placeholder="Street" formControlName="street">
+                <mat-error *ngIf="name.errors?.required">
+                  Street is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+
+                <input type="text" matInput placeholder="Name" formControlName="name">
+                <mat-error *ngIf="name.errors?.required">
+                  Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p">
+              <mat-form-field class="example-full-width">
+
+                <input type="text" matInput placeholder="Last Name" formControlName="last_name">
+                <mat-error *ngIf="name.errors?.required">
+                  Last Name is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <button class="form-btn" [disabled]="!SignupForm.valid" mat-flat-button (click)="openLoginDialog()">Get
+                Started</button>
+
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="login-feet">
+    <mat-progress-spinner *ngIf="isSubmit == true" class="example-margin" [color]="color" [mode]="mode" [value]="value"
+      [diameter]="30">
+    </mat-progress-spinner>
+    <p *ngIf="message != ''">{{message}}</p>
+  </div>
+</div>

@@ -1,0 +1,95 @@
+  <div class="container">
+  <div class="row">
+    <div class="col s4 ">
+      <div class="sidecart card ">
+        <div class="card-content ">
+          <form #employeeForm="ngForm" (ngSubmit)="addEmployee(employeeForm)">
+            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="employeeService.selectedEmployee._id">
+            <div class="row">
+              <div class="input-field col-s12">
+                <input type="text" name="title" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.title" placeholder="Enter your title">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="item" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.item" placeholder="Enter your item">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="description" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.description" placeholder="Enter your description">
+              </div>
+              <div class="input-field col-s12">
+                <input type="text" name="price" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.price" value="0" placeholder="Enter your price">
+              </div>
+              <div class="input-field col-s12">
+                  <input type="text" name="image" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.image"  placeholder="Enter your image_url">
+                </div>
+                <div class="input-field col-s12">
+                    <input type="text" name="Category_name" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.Category_name"  placeholder="Enter your Category_name">
+                  </div>
+
+              <div class="card-action">
+                <div class="input-field col-s12">
+                  <button class="btn right">Save</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    <div class="container waffle-card col s8" >
+        <div class="waffle-card-heading">
+          <nav class="white home-block-nav">
+            <ul >
+              <li><a (click)="All()">
+                  <mat-icon>local_grocery_store</mat-icon>All
+                </a></li>
+              <li><a (click)="Pastries()">
+                  <mat-icon>cake</mat-icon>Pastries
+                </a></li>
+              <li><a (click)="coffee()">
+                  <mat-icon>free_breakfast</mat-icon>coffee
+                </a></li>
+              <li><a (click)="fruits()">
+                  <mat-icon>nature</mat-icon>fruits
+                </a></li>
+                <li><a >
+                    <input #newHero (click)="All()" (keyup.enter)="waffletitle()" [(ngModel)]="tcode"  type="text"  placeholder="Search"  class="autocomplete red-text">
+                  </a></li>
+                </ul>
+          </nav>
+        </div>
+        <div *ngIf="fetching == true" class="fetching" style="padding-top: 50px">
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+        </div>
+        <div *ngIf="fetching == true" class="fetching" style="padding-top: 50px">
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+        </div>
+        <div *ngIf="fetching == true" class="fetching" style="padding-top: 50px">
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+          <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+        </div>
+          <div class="col  waffle-item" *ngFor="let employee of employeeService.employees| name: tcode"  (click)="editEmployee(employee)">
+            <mat-card class="example-card">
+              <a class="show_waffle"  >
+                <img mat-card-image src="{{employee.image}}" alt="{{employee.title}} image">
+                <mat-card-title-group>
+                  <mat-card-title>
+                    <h4>{{employee.title}}</h4>
+                  </mat-card-title>
+                  <mat-card-subtitle>
+                    <p>{{employee.item}}</p>
+                  </mat-card-subtitle>
+                  <p class="price">{{employee.price}}</p>
+                </mat-card-title-group>
+              </a>
+            </mat-card>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+
+

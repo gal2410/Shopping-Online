@@ -1,0 +1,13 @@
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgx2QBBtlyLRB_TWp-s-f4MBr-4tv4EGatQYO1SfpOt0BR6bXQnA">
+<h4> Available products in </h4>
+<h4> our store - {{Products.count}} </h4>
+<br />
+<h4> Number of orders </h4>
+<h4> submitted in our store - {{Orders.count}} </h4>
+<br />
+<div *ngIf="user?.role==1">
+    <h4 class="yellow"> welcome {{user.name}}</h4>
+    <h4 class="yellow"> Notification: </h4>
+    <h4 class="yellow"> You have open cart from {{open_cart.date}}/ </h4>
+    <h4 class="yellow"> your last purchase was on {{order.Order_date}}/ </h4>
+</div>

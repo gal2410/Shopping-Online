@@ -1,0 +1,36 @@
+.home-block{
+  height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0;
+    position: relative;
+    width:100%;
+}
+
+.main-flex{
+  width: 100%;
+  display: flex;
+  position: relative;
+  padding-top: 80px;
+  background: #eee;
+}
+
+@media(max-width: 994px){
+  .main-flex{
+    display: block;
+  }
+  .main, .aside{
+    width:100% !important;
+    padding: 15px 12px !important;
+  }
+
+
+}
+.main{
+  padding-left:5%;
+}
+
+.aside{
+  padding-left: 2%;
+}

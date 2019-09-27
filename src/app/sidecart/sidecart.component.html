@@ -1,0 +1,58 @@
+<div class=" g btn " (click)="toggle()" id="bt" *ngIf="pageName == 'home' && user?.role==1">
+  {{buttonName}}
+</div>
+
+<ng-container *ngIf="show" >
+  <mat-card class="sidecart shadow" *ngIf="session == true && user?.role==1" >
+      <div *ngIf="pageName == 'checkout'"><a class=" g2 btn " href="/home">Back to shop</a> </div>
+      <input type="text" [(ngModel)]="searchedTerm"   placeholder="Search and mark" *ngIf="pageName == 'checkout'"> <br>
+    <h4 style=" font-weight: bold;">My Cart</h4>
+    <a [ngClass]="{'disabled' : cart.length<=0}" >
+    <button class="removeAllItems" class="cart-item-remove" mat-button (click)="removeAllItems()" *ngIf="pageName == 'home'">Remove all items</button>
+</a>
+    <mat-divider></mat-divider>
+    <div *ngIf="fetching == true" class="fetching">
+      <mat-progress-bar [mode]="mode" [color]="color"></mat-progress-bar>
+    </div>
+    <mat-card-subtitle *ngIf="cart.length <=0" class="sidecart-sub">
+      <span *ngIf="pageName == 'home'">Your product will be shown here!</span>
+    </mat-card-subtitle>
+    <div class="parked-list" >
+      <div class="cart-item"  *ngFor="let c of cart| search: searchedTerm; let i = index" [ngClass]="{'false': i ==0}">
+        <div class="cart-item-inner">
+          <div class="cart-item-content">
+            <span class="cart-item-heading" [innerHTML]="c.title | highlight: searchedTerm"></span>
+            <div class="show-card-controlls">
+              <button mat-mini-fab color="black" (click)="decQuantity(i)" class="show-card-controlls-btn" *ngIf="pageName == 'home'">-</button>
+              <div class="show-card-controlls-qnt">{{c.quantity}}</div>
+              <button mat-mini-fab color="black" (click)="incQuantity(i)" class="show-card-controlls-btn" *ngIf="pageName == 'home'">+</button>
+            </div>
+          </div>
+          <div class="cart-item-price">ILS {{ totalItemPrice(c.price, c.quantity)}}
+            <button class="cart-item-remove" mat-button (click)="removeItem(i)" *ngIf="pageName == 'home'">Remove</button></div>
+        </div>
+      </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div *ngIf="pageName == 'checkout'" style=" font-weight: bold;">NO CHANGES PERMITTED HERE!</div>
+    <mat-divider></mat-divider>
+    <div mat-flat-button class="checkout checkout-viewcart" (click)="display()" *ngIf="pageName == 'checkout'">
+      <div class="btn-totali">{{totalItems()}} items</div>
+      <div class="btn-name">{{cartName}}</div>
+      <div class="btn-totalm">ILS [{{totalAmount()}}]</div>
+    </div>
+    <div class="sub-total" *ngIf="cart.length >0">
+      <div class="sub-total-item">Subtotal ({{totalItems()}} items)</div>
+      <div class="sub-total-amount">ILS {{totalAmount()}}</div>
+    </div>
+    <mat-divider></mat-divider>
+    <a href="/checkout" [ngClass]="{'disabled' : cart.length<=0}" *ngIf="pageName == 'home'">
+      <div mat-flat-button class="checkout">
+        <div class="btn-totali">{{totalItems()}} items</div>
+        <div class="btn-name">Order</div>
+        <div class="btn-totalm">ILS [{{totalAmount()}}]</div>
+      </div>
+    </a>
+  </mat-card>
+</ng-container>
+

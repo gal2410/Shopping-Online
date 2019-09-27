@@ -1,0 +1,97 @@
+.waffle-card{
+    margin:auto 0;
+    width: 20%;
+  }
+
+  .sidecart{
+    display: block;
+    position: sticky;
+    position: -webkit-sticky !important;
+    top:140px;
+    margin-top: 10px;
+    width:300px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 25px 0px;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 50px;
+  }
+  a{
+    color: #111
+  }
+  
+  img{
+    width:300px;
+    height: 240px;
+    -webkit-column-fill: auto; 
+    column-fill: auto;
+  }
+  
+  
+  .waffle-card-heading{
+    padding: 5px 15px;
+    margin-bottom: 20px;
+  }
+  .waffle-card-heading h4{
+    font-weight: 100;
+    font-size: 32px;
+  }
+  .example-card {
+    width: 100%;
+    max-width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px;
+    cursor: pointer;
+  }
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .price{
+    padding: 5px 6px;
+    height: 32px;
+    color:#111;
+  
+    /*border-radius: 2px;*/
+    /*float: right;*/
+    /*border: 2px #f8c446 dashed;*/
+  }
+  .price:before{
+    content: "\20AA";
+    float: left;
+  }
+  .card-action{
+    width: 100%;
+    padding: 0;
+    min-height: 0;
+    height: auto;
+  }
+  .waffle-item{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    
+
+  }
+  .show_waffle{
+    text-decoration: none !important;
+    color: #111;
+    display: block;
+  }
+  
+  .example-card h4 {
+    font-size: 18px;
+  }
+  
+  
+  
+
+  
+  
+  
+  
+  
+
+  
+ 
+  
+  

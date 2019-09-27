@@ -1,0 +1,81 @@
+<div>
+  <app-navbar></app-navbar>
+
+  <div class="emptycart" *ngIf="isCartEmpty == true">
+    <div class="emptycart-body">
+      <img src="../../assets/i.png"
+        alt="">
+      <p>You can go to login <br><a href="/">Go</a></p>
+    </div>
+  </div>
+  <div class="main-flex" *ngIf="isCartEmpty == false">
+    <app-sidecart class="aside" [pageName]="pageName" (isCartEmpty)="cartLenghtHandler($event)"></app-sidecart>
+    <div class="main">
+      <div class="checkout-body">
+        <div class="row">
+          <div class="col s12 step account">
+            <div class="step-head">
+              <h4>Account <div class="icon-back" *ngIf="session == true">
+                  <mat-icon>check</mat-icon>
+                </div>
+              </h4>
+            </div>
+            <div *ngIf="session == true" class="subtitle-text">
+              <strong>{{user.name}} | {{user.email}}</strong>
+            </div>
+          </div>
+          <div class="col s12 step address">
+            <div class="step-head">
+              <h4 [ngClass]="{'grey-text' : session === false}">order<div class="icon-back" *ngIf="session == true && issetLocation == true">
+                  <mat-icon>check</mat-icon>
+                </div>
+              </h4>
+            </div>
+            <div class="step-body" *ngIf="session == true && issetLocation == false">
+              <h6 class="grey-text">Shipping Details</h6>
+              <form [formGroup]="LoginForm" (ngSubmit)="oorders()">
+
+                <mat-label>City:</mat-label>
+                <mat-form-field class="example-full-width">
+                  <mat-select required formControlName="city">
+                    <mat-option value="Afula">Afula</mat-option>
+                    <mat-option value="Tel Aviv">Tel Aviv</mat-option>
+                    <mat-option value="Netanya">Netanya</mat-option>
+                    <mat-option value="Beer Sheva">Beer Sheva</mat-option>
+                    <mat-option value="Ashdod">Ashdod</mat-option>
+                    <mat-option value="Raanana">Raanana</mat-option>
+                    <mat-option value="Eilat">Eilat</mat-option>
+                    <mat-option value="Haifa">Haifa</mat-option>
+                    <mat-option value="Kiryat Shmona">Kiryat Shmona</mat-option>
+                    <mat-option value="Ramat Gan">Ramat Gan</mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-label>Street:</mat-label>
+                <mat-form-field class="example-full-width">
+                  <input matInput type="text" placeholder="Street" formControlName="street">
+                </mat-form-field>
+
+                <mat-label>Shipping Date:</mat-label>
+                <mat-form-field class="example-full-width">
+                  <input type="date" matInput placeholder="Shipping Date" formControlName="Shipping_Date">
+                </mat-form-field>
+
+                <h6 class="grey-text">Payments:</h6>
+
+                <hr>
+
+                <mat-label>Credit Card:</mat-label>
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Credit Card" formControlName="Credit_Card">
+                </mat-form-field>
+
+                <button class="form-btn">Order </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+.login{
+  background-color: lightgray;
+  height: 100vh;
+
+  background: linear-gradient(to bottom, #f3f3f3 0%, #756f6c 100%);
+text-align: center;
+}
+.p{
+  margin: 20px;
+
+}
+
+.example-full-width {
+  width: 100%;
+  margin-top:-2px;
+}
+
+
+.container{
+   overflow: hidden;
+   height: 90vh;
+
+}
+
+.login-head{
+  margin-top: 20px;
+
+}
+
+h4{
+  font-size: 28px;
+
+}
+
+
+.f{
+  border-right: 1px solid white
+}
+
+.login-head span{
+  cursor: pointer;
+  color:#ee6e73;
+}
+
+.form-btn:focus{
+  background: #088a2f !important;
+}

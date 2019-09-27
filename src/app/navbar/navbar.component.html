@@ -1,0 +1,58 @@
+<nav class="white home-block-nav"  >
+  <div class="nav-wrapper white home-block-nav-menu">
+    <div class="home-block-nav-logo-sm">
+      <div class="waves-effect waves-teal right" style="display: flex" href="/"><img src="../../assets/i.png" alt="logo"
+          width="100%"></div>
+    </div>
+    <div class="home-block-nav-btn-sm">
+      <a data-target="mobile-demo" (click)="drawer.toggle()" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+    <div class="home-block-nav-logo">
+      <a class="waves-effect waves-teal right" href="/"><img src="../../assets/i.png" alt="logo" height="40px" width="auto"></a>
+    </div>
+    
+  </div>
+    <ul class="hide-on-med-and-down">
+      <li>
+        <button *ngIf="session == false"  mat-button class="waves-effect waves-teal btn-flat left" ><a href="/" >
+          <mat-icon >person_outline</mat-icon>SIGN IN</a>
+        </button>
+        <button *ngIf="session == true" mat-button [matMenuTriggerFor]="beforeMenu" class="waves-effect waves-teal btn-flat left">
+          <mat-icon>person_outline</mat-icon>{{user.name}}<mat-icon>keyboard_arrow_down</mat-icon>
+        </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <a (click)="logout()" href='/'> <button mat-menu-item>Logout</button></a>
+        </mat-menu>
+      </li>
+    </ul>
+</nav>
+
+<mat-drawer-container class="sidenav-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="over">
+    <ul class="" id="mobile-demo">
+      <li style="padding: 50px 0;margin-bottom: 24px;background: #efefef;"><a href="/"><img src="../../assets/i.png"
+            alt="logo" height="75%" /></a></li>
+      <li><a *ngIf="session == true">
+          <mat-icon>person_outline</mat-icon>{{user.name}}<ng-content></ng-content>
+        </a></li>
+      <li><a href="/home">
+          <mat-icon>home</mat-icon>Home
+        </a></li>
+      <li><a>
+          <mat-icon>search</mat-icon> <input type="text" (keyup)="find_product()" placeholder="Search" id="autocomplete-input"
+            class="autocomplete red-text">
+        </a></li>
+      <li><a href="/checkout" class="cart">
+          <mat-icon>shopping_basket</mat-icon>CART
+        </a></li>
+      <li>
+        <button *ngIf="session == false" mat-button (click)="openDialog()" class="waves-effect waves-teal btn-flat left">
+          <mat-icon>person_outline</mat-icon>SIGN IN
+        </button>
+      </li>
+      <li><a *ngIf="session == true" (click)="logout()">
+          <mat-icon>all_out</mat-icon>Logout
+        </a></li>
+    </ul>
+  </mat-drawer>
+</mat-drawer-container>
