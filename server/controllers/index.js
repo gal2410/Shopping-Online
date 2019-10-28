@@ -60,7 +60,10 @@ exports.Orders = (req, res) => {
   var street = body.street;
   var Shipping_Date = body.Shipping_Date;
   var Credit_Card = body.Credit_Card;
-
+  Orders.find({ Shipping_Date: Shipping_Date }, (err, d) => {
+    if (d.length>2) {
+      res.send(sendStatus("You have to choose another day, all shipments are taken", 0, false));
+    }else{
   if (!checkCreditCard(Credit_Card)) {
     res.send(sendStatus("Kindly enter the valid Credit Card", 0, false));
   }
@@ -94,7 +97,8 @@ exports.Orders = (req, res) => {
         }
       };
     })
-  }
+  }  }});
+
 }
 
 

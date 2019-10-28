@@ -37,7 +37,7 @@
 
                 <mat-label>City:</mat-label>
                 <mat-form-field class="example-full-width">
-                  <mat-select required formControlName="city">
+                  <mat-select  required formControlName="city">
                     <mat-option value="Afula">Afula</mat-option>
                     <mat-option value="Tel Aviv">Tel Aviv</mat-option>
                     <mat-option value="Netanya">Netanya</mat-option>
@@ -53,7 +53,10 @@
 
                 <mat-label>Street:</mat-label>
                 <mat-form-field class="example-full-width">
-                  <input matInput type="text" placeholder="Street" formControlName="street">
+                  <input id='e' matInput type="text" placeholder="Street" formControlName="street" (dblclick)="myFunction(user.street)">
+                  <mat-error *ngIf="errors?.required">
+                    City is <strong>required</strong>
+                  </mat-error>
                 </mat-form-field>
 
                 <mat-label>Shipping Date:</mat-label>
@@ -69,7 +72,7 @@
                 <mat-form-field class="example-full-width">
                   <input type="text" matInput placeholder="Credit Card" formControlName="Credit_Card">
                 </mat-form-field>
-
+                <p *ngIf="message != ''">{{message}}</p>
                 <button class="form-btn">Order </button>
               </form>
             </div>

@@ -10,6 +10,11 @@
 
   
 }
+p{
+  background-color: yellow;
+  font-family:serif;
+  font-weight: bold;
+} 
 
 .a{
   text-align: center

@@ -18,7 +18,7 @@ import { Observable, of } from "rxjs";
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-
+  message: string;
   waffles: any;
   fetching: Boolean = false;
   LoginForm: any;
@@ -30,7 +30,7 @@ export class CheckoutComponent implements OnInit {
   pageName = "checkout";
   isCartEmpty: boolean = false;
   orders: any = [];
-
+  input
   private setting = {
     element: {
       dynamicDownload: null as HTMLElement
@@ -61,6 +61,13 @@ export class CheckoutComponent implements OnInit {
 
     var event = new MouseEvent("click");
     element.dispatchEvent(event);
+  }
+
+
+
+  myFunction(val) {
+    this.input = document.getElementById("e");
+    this.input.value = val;
   }
 
 
@@ -119,8 +126,11 @@ export class CheckoutComponent implements OnInit {
   oorders(): void {
     this._cartService.orders(this.LoginForm.value).subscribe(res => {
       console.log(res)
+  
       if (res.Credit_Card > 1) {
         this.open()
+      }  else{
+        this.message = res.message;
       }
     })
   }

@@ -27,6 +27,7 @@ export class GeneralInformationComponent implements OnInit {
     private _cartService: CartService,
 
 
+
     ) {
       _formSubmitService.getSession.subscribe(value=>{
         this.changeSession(value);
@@ -73,9 +74,11 @@ export class GeneralInformationComponent implements OnInit {
     this.http.get('http://'+this.document.location.hostname+':3000/api/lastOrder').subscribe((res: any) => {
         this.order = res;
         console.log(res)
+        
     });
   }
 
+  
   getopencart(): void {
     this.http.get('http://'+this.document.location.hostname+':3000/api/opencart').subscribe((res: any) => {
         this.open_cart = res;
