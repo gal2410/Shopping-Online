@@ -28,5 +28,5 @@ server/seed$ node seeder.js
 ```
 The file `seeder.js` contains the code which seeds up to the MongoDB database with the help of ODM mongoose.
 
-
-
+ 
+For administrator permission go to -Shopping_Online_.User collection Change to one user"role" from '1'to'0'. 
