@@ -21,7 +21,7 @@ Run `cd server && npm start or npx nodemon` for a backend server.
 
 
 Once you've installed all the prerequisites and all the dependencies, you must have the shopping online app running successfully in on your machine. 
-But to get started we must seed some data in our MongoDB database. For seeding data in the data just run the following commands:
+But to get started we must seed some data in our MongoDB database. For seeding data just run the following commands:
 ```sh
 $ cd server/seed
 server/seed$ node seeder.js
