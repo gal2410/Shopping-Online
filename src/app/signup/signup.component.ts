@@ -29,12 +29,18 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
 
+
+    
     this.SignupForm = new FormGroup({
       email : new FormControl('', [
         Validators.required,
         Validators.email,
       ]),
       password : new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+      ]),
+      password1 : new FormControl('', [
         Validators.required,
         Validators.minLength(8),
       ]),
@@ -64,6 +70,7 @@ export class SignupComponent implements OnInit {
   get contact() { return this.SignupForm.get('password'); }
   get email() { return this.SignupForm.get('email'); }
   get password() { return this.SignupForm.get('password'); }
+  get password1() { return this.SignupForm.get('password1'); }
 
   
 

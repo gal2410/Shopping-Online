@@ -45,11 +45,11 @@
             </div>
             <div class="p">
               <mat-form-field class="example-full-width">
-                <input type="password" matInput placeholder="Password Confirm" formControlName="password">
-                <mat-error *ngIf="password.errors?.minLength && !password.errors?.required">
-                  Minimum length of 8 is required
+                <input type="password" matInput placeholder="Password Confirm" formControlName="password1">
+                <mat-error *ngIf="SignupForm.value.password1 !== SignupForm.value.password">
+                  Passwords don't match
                 </mat-error>
-                <mat-error *ngIf="password.errors?.required">
+                <mat-error *ngIf="password1.errors?.required">
                   Password is <strong>required</strong>
                 </mat-error>
               </mat-form-field>
@@ -59,7 +59,7 @@
             <div class="p">
               <mat-form-field class="example-full-width">
                 <mat-label>City:</mat-label>
-                <mat-select matInput placeholder="City" formControlName="city" required>
+                <mat-select matInput placeholder="City" formControlName="city" required [disabled]="!password1.valid||!password.valid||!email.valid||!contact.valid">
                   <mat-option value="Afula">Afula</mat-option>
                   <mat-option value="Tel Aviv">Tel Aviv</mat-option>
                   <mat-option value="Netanya">Netanya</mat-option>
