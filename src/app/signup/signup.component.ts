@@ -29,8 +29,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
 
-
-    
     this.SignupForm = new FormGroup({
       email : new FormControl('', [
         Validators.required,
@@ -61,7 +59,7 @@ export class SignupComponent implements OnInit {
       street : new FormControl('', [
         Validators.required
       ]),
-    });
+    }); 
   }
   get city() { return this.SignupForm.get('city'); }
   get street() { return this.SignupForm.get('street'); }
