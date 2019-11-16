@@ -1,4 +1,9 @@
+### Shopping-Online MEAN - MongoDB, Express, Angular, and Node.js.
 
+ user// register and login, search and add product to cart, saving a cart and make an order.
+ 
+ admin// can add or edit a product. 
+ 
 ## Installation
 To install client-side dependencies, run this in the application folder from the command-line:
 
