@@ -4,7 +4,7 @@
 
 <ng-container *ngIf="show" >
   <mat-card class="sidecart shadow" *ngIf="session == true && user?.role==1" >
-      <div *ngIf="pageName == 'checkout'"><a class=" g2 btn " href="/home">Back to shop</a> </div>
+      <div *ngIf="pageName == 'checkout'"><a class=" g2 btn "  routerLink="/home" routerLinkActive="active">Back to shop</a> </div>
       <input type="text" [(ngModel)]="searchedTerm"   placeholder="Search and mark" *ngIf="pageName == 'checkout'"> <br>
     <h4 style=" font-weight: bold;">My Cart</h4>
     <a [ngClass]="{'disabled' : cart.length<=0}" >
@@ -46,7 +46,7 @@
       <div class="sub-total-amount">ILS {{totalAmount()}}</div>
     </div>
     <mat-divider></mat-divider>
-    <a href="/checkout" [ngClass]="{'disabled' : cart.length<=0}" *ngIf="pageName == 'home'">
+    <a routerLink="/checkout" routerLinkActive="active" [ngClass]="{'disabled' : cart.length<=0}" *ngIf="pageName == 'home'">
       <div mat-flat-button class="checkout">
         <div class="btn-totali">{{totalItems()}} items</div>
         <div class="btn-name">Order</div>

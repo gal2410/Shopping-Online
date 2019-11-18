@@ -2,10 +2,10 @@
 
 
 <div class="login" >
-  <button  ><a  (click)="moveToHomePage()"><h6>Start Shopping/</h6><h6>Resume Shopping</h6><div>"available only for  </div><div>logged in users - </div><div>secure it"</div></a></button>
+  <button  ><a  routerLink="/home" routerLinkActive="active"><h6>Start Shopping/</h6><h6>Resume Shopping</h6><div>"available only for  </div><div>logged in users - </div><div>secure it"</div></a></button>
   <div class="login-head">
     <h4>Login</h4>
-    <p>or <span (click)="openSignupDialog()"><strong><a href="/signup">create an account</a></strong></span></p>
+    <p>or <span (click)="openSignupDialog()"><strong><a routerLink="/signup" routerLinkActive="active">create an account</a></strong></span></p>
     <div class="underline"></div>
   </div>
   <div class="login-body">
