@@ -223,11 +223,15 @@ export class popComponent {
     }
   }
 
-  dynamicDownloadTxt() {
+    dynamicDownloadTxt() {
     this._cartService.getItems().subscribe((res) => {
       const products = res.map(p => p.title);
-      const product = res.map(p => p.price);
-      this.r = products + ['   total price:'] + product.reduce((a, b) => a + b, 0)
+      const len = res.length;
+      var amt = 0;
+      for (var i = 0; i < len; i++) {
+        amt += (res[i]['quantity'] * res[i]['price']);
+      }
+      this.r = products + ['   total price:'] + amt
       this.dyanmicDownloadByHtmlTag({
         fileName: 'My Report',
         text: JSON.stringify(this.r),
